@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram_clone/story_screen.dart';
 
 void main() => runApp(const InstagramApp());
 
@@ -84,10 +85,16 @@ class _InstagramHomePageState extends State<InstagramHomePage> {
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: Column(
-              children: const [
-                CircleAvatar(
-                  radius: 30,
-                  backgroundImage: NetworkImage('https://instagram.fala2-1.fna.fbcdn.net/v/t51.2885-19/352224138_1028122805231303_1175896139426286760_n.jpg?stp=dst-jpg_s320x320&_nc_ht=instagram.fala2-1.fna.fbcdn.net&_nc_cat=1&_nc_ohc=PYg0nVxbtfkAX-GEPq0&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AfC9jZoCEX2pXfRyf5OZSsS_vXEuydlsrU6StrBrL6TR1A&oe=6522B8EA&_nc_sid=8b3546'),
+              children: [
+                InkWell(
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => InstagramStory()));
+                  },
+                  child: CircleAvatar(
+                    radius: 30,
+                    backgroundImage: NetworkImage('https://instagram.fala2-1.fna.fbcdn.net/v/t51.2885-19/352224138_1028122805231303_1175896139426286760_n.jpg?stp=dst-jpg_s320x320&_nc_ht=instagram.fala2-1.fna.fbcdn.net&_nc_cat=1&_nc_ohc=PYg0nVxbtfkAX-GEPq0&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AfC9jZoCEX2pXfRyf5OZSsS_vXEuydlsrU6StrBrL6TR1A&oe=6522B8EA&_nc_sid=8b3546'),
+                  ),
                 ),
                 SizedBox(height: 4),
                 Text('zuck', style: TextStyle(fontSize: 12)),
@@ -98,6 +105,7 @@ class _InstagramHomePageState extends State<InstagramHomePage> {
       ),
     );
   }
+
 
 
   List<Widget> _buildPosts() {
